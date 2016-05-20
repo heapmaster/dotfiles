@@ -1,0 +1,13 @@
+[user]
+    name = snewberry
+    email = snewberry@hudsonalpha.org
+[diff]
+[color]
+    ui = auto
+[alias]
+    co = checkout
+    di = diff
+    ds = diff --stat
+    st = status
+[push]
+	default = simple
