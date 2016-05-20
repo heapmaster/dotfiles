@@ -14,6 +14,8 @@
 (eval-when-compile
   (require 'use-package))
 
+(setq make-backup-files nil)
+
 (use-package evil
   :ensure t
   :config
