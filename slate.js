@@ -1,30 +1,104 @@
-var windowStates = {};
+S.config("orderScreensLeftToRight", true);
 
-var leftThird = S.op("push",
-                        {"direction": "left",
-                         "style": "bar-resize: screenSizeX/3"});
-var leftHalf = S.op("push",
-                        {"direction": "left",
-                         "style": "bar-resize: screenSizeX/2"});
+var leftScreenRef = "0";
+var rightScreenRef = "1";
 
-var rightThird = S.op("push",
-                        {"direction": "right",
-                         "style": "bar-resize: screenSizeX/3"});
-var rightHalf = S.op("push",
-                        {"direction": "right",
-                         "style": "bar-resize: screenSizeX/2"});
+var bottomMiddle = function(screenRef) {
+    return S.op("move", {
+            "screen": screenRef,
+            "x": "screenOriginX + (screenSizeX / 2)",
+            "y": "screenOriginY + (screenSizeY / 2)",
+            "width": "screenSizeX / 2",
+            "height": "screenSizeY / 2"
+            });
+};
 
-var upThird = S.op("push",
-                    {"direction": "up"});
-var upHalf = S.op("push",
-                    {"direction": "up"});
+var bottomLeft = function(screenRef) {
+    return S.op("move", {
+            "screen": screenRef,
+            "x": "screenOriginX",
+            "y": "screenOriginY + (screenSizeY / 2)",
+            "width": "screenSizeX / 2",
+            "height": "screenSizeY / 2"
+            });
+};
 
-var downThird = S.op("push",
-                    {"direction": "down"});
-var downHalf = S.op("push",
-                    {"direction": "down"});
+var bottomRight = function(screenRef) {
+    return S.op("move", {
+            "screen": screenRef,
+            "x": "screenOriginX + (screenSizeX / 3 * 2)",
+            "y": "screenOriginY + (screenSizeY / 2)",
+            "width": "screenSizeX / 2",
+            "height": "screenSizeY / 2"
+            });
+};
 
-S.bind('h:cmd,shift', leftThird);
-S.bind('l:cmd,shift', rightThird);
-S.bind('j:cmd,shift', downThird);
-S.bind('k:cmd,shift', upThird);
+var topMiddle = function(screenRef) {
+    return S.op("move", {
+            "screen": screenRef,
+            "x": "screenOriginX + (screenSizeX / 2)",
+            "y": "screenOriginY",
+            "width": "screenSizeX / 2",
+            "height": "screenSizeY / 2"
+            });
+};
+
+var topLeft = function(screenRef) {
+    return S.op("move", {
+            "screen": screenRef,
+            "x": "screenOriginX",
+            "y": "screenOriginY",
+            "width": "screenSizeX / 2",
+            "height": "screenSizeY / 2"
+            });
+};
+
+var topRight = function(screenRef) {
+    return S.op("move", {
+            "screen": screenRef,
+            "x": "screenOriginX + (screenSizeX / 3 * 2)",
+            "y": "screenOriginY",
+            "width": "screenSizeX / 2",
+            "height": "screenSizeY / 2"
+            });
+};
+
+var oneMonitorLayout = S.layout("oneMonitor", {
+    "iTerm": {
+        "operations": [ bottomLeft(leftScreenRef), bottomMiddle(leftScreenRef), bottomRight(leftScreenRef) ],
+        "sort-title": true,
+        "repeat": true
+    },
+    "Google Chrome": {
+        "operations": [ topMiddle(leftScreenRef) ],
+        "repeat": true,
+        "ignore-fail": true
+    }
+});
+
+var twoMonitorLayout = S.layout("twoMonitor", {});
+
+S.bind("o:cmd,shift", S.op("layout", { "name": oneMonitorLayout }));
+
+S.default(1, oneMonitorLayout);
+
+/*
+var leftThird = S.op("push", {
+        "direction": "left",
+        "style": "bar-resize: screenSizeX/3"});
+var leftHalf = S.op("push", {
+        "direction": "left",
+        "style": "bar-resize: screenSizeX/2"});
+
+var rightThird = S.op("push", {
+        "direction": "right",
+        "style": "bar-resize: screenSizeX/3"});
+var rightHalf = S.op("push", {
+        "direction": "right",
+        "style": "bar-resize: screenSizeX/2"});
+
+S.bind('h:cmd,shift', leftHalf);
+S.bind('l:cmd,shift', rightHalf);
+S.bind('j:cmd,shift', downHalf);
+S.bind('k:cmd,shift', upHalf);
+*/

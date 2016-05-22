@@ -4,6 +4,8 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
+(add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
+
 (setq package-enable-at-startup nil)
 
 (package-initialize)
@@ -16,6 +18,22 @@
 
 (setq make-backup-files nil)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a164837cd2821475e1099911f356ed0d7bd730f13fa36907895f96a719e5ac3e" default)))
+ '(package-selected-packages (quote (use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
 (use-package evil
   :ensure t
   :config
@@ -26,15 +44,12 @@
   :config
   (helm-mode t))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- ) 
+;; themes
+;;(use-package color-theme-sanityinc-tomorrow :ensure t)
+(use-package zenburn-theme :ensure t)
+(use-package cyberpunk-theme :ensure t)
+(use-package gruvbox-theme :ensure t)
+
+(load-theme 'gruvbox)
+
+ 
