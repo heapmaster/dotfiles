@@ -34,15 +34,27 @@
  ;; If there is more than one, they won't work right.
  )
 
+(setq-default indent-tabs-mode nil)
 (use-package evil
   :ensure t
   :config
-  (evil-mode t))
+  (evil-mode t)
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode)
+    (evil-leader/set-leader ",")
+    (evil-leader/set-key
+      "," 'evil-switch-to-windows-last-buffer
+      "b" 'helm-mini
+    )))
 
 (use-package helm
   :ensure t
   :config
-  (helm-mode t))
+  (helm-mode t)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-autoresize-mode t))
 
 ;; themes
 ;;(use-package color-theme-sanityinc-tomorrow :ensure t)
