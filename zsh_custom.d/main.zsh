@@ -9,6 +9,12 @@ bindkey '^e' end-of-line
 
 ### Zsh options ###
 setopt promptsubst
+setopt append_history
+setopt share_history
+setopt hist_expire_dups_first
+
+HISTSIZE=100000
+SAVEHIST=80000
 
 ### Aliases ###
 alias h="history"
