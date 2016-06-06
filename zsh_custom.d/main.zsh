@@ -7,6 +7,9 @@ bindkey '^w' backward-kill-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
+### Zsh options ###
+setopt promptsubst
+
 ### Aliases ###
 alias h="history"
 
@@ -26,6 +29,3 @@ function comma() {
     xargs | tr " " "$replace"
 }
 
-function batt_percent() {
-    pmset -g batt | grep InternalBattery | sed 's/.*	\([0-9][0-9]*%\);.*/\1/'
-}
