@@ -95,7 +95,7 @@ var oneMonitorLayout = S.layout("oneMonitor", {
         "ignore-fail": true
     },
     "Slack": {
-        "operations": [ bottomLeft(leftScreenRef) ]
+        "operations": [ bigMiddle(leftScreenRef) ]
     }
 });
 
