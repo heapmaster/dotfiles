@@ -5,3 +5,5 @@ if [[ ! -z $MY_ENVIRONMENT ]]; then
         }
     fi
 fi
+
+PATH="$HOME/.cargo/bin:$PATH"
