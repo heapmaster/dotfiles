@@ -70,6 +70,12 @@
 (use-package powerline-evil
   :ensure t)
 
+(use-package org
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook
+            (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)))
+
 ;; Make tab work right in asm-mode
 (defun my-asm-mode-hook ()
   ;; you can use `comment-dwim' (M-;) for this kind of behaviour anyway
