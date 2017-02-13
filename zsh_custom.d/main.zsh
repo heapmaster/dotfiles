@@ -38,3 +38,7 @@ function comma() {
 function motd() {
     fortune -s | sed $'s/\t/    /g' | awk 'BEGIN{RS=""; FS="\n"} {max=0; for (i=1;i<=NF;i++) { if (length($i) > max) { max = length($i); } } h=""; for(i=0;i<max+4;i++) { h=sprintf("%s-", h); } printf("%s\n", h); for(i=1;i<=NF;i++) { printf("| %-*s |\n", max, $i); } printf("%s\n", h); }'
 }
+
+function calc() { 
+    awk "BEGIN {print $*}" ; 
+}

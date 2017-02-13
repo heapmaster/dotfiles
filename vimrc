@@ -75,3 +75,7 @@ set t_Co=256
 
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
+let g:calendar_google_calendar = 1
+let g:calendar_clock_12hour=1
+map <leader>c :Calendar<cr>
