@@ -23,12 +23,13 @@
 (setq custom-safe-themes t)
 (setq-default indent-tabs-mode nil)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (powerline-evil powerline use-package))))
+;; Set backups to go to specific directory and turn them off
+(setq backup-directory-alist '("." . "~/.emacs.d/saves"))
+(setq make-backup-files nil)
+
+;; Bullshit custom bullshit
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file 'noerror)
 
 (use-package evil
   :ensure t
@@ -41,7 +42,10 @@
     (evil-leader/set-key
       "," 'evil-switch-to-windows-last-buffer
       "b" 'helm-mini
+      "g" 'magit-status
     ))
+  (evil-set-initial-state 'magit-diff-mode 'normal) 
+  ;;(add-to-list 'evil-normal-state-modes '(magit-diff-mode))
     (evil-mode t))
 
 (use-package helm
@@ -74,8 +78,21 @@
   :ensure t
   :config
   (add-hook 'org-mode-hook
-            (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)))
+            (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle))
+  (add-hook 'org-agenda-mode-hook
+          (lambda ()
+            (define-key org-agenda-mode-map "j" 'org-agenda-next-item)
+            (define-key org-agenda-mode-map "k" `org-agenda-previous-item)))
+  (setq org-default-notes-file "~/Dropbox/org/todo.org")
+  (setq org-directory "~/Dropbox/org")
+  (setq org-agenda-files '("~/Dropbox/org")))
 
+(use-package org-evil
+  :ensure t)
+
+(use-package magit
+  :ensure t
+  :defer t)
 ;; Make tab work right in asm-mode
 (defun my-asm-mode-hook ()
   ;; you can use `comment-dwim' (M-;) for this kind of behaviour anyway
@@ -83,10 +100,3 @@
   ;; asm-mode sets it locally to nil, to "stay closer to the old TAB behaviour".
   (setq tab-always-indent (default-value 'tab-always-indent)))
 (add-hook 'asm-mode-hook #'my-asm-mode-hook)
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
