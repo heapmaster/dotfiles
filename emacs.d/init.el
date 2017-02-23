@@ -48,6 +48,7 @@
       "o" 'delete-other-windows
       "t" 'helm-projectile))
   (evil-define-key 'normal global-map (kbd "C-S-p") 'helm-projectile-switch-project)
+  (evil-define-key 'normal global-map (kbd "C-z") 'eshell)
   (evil-set-initial-state 'magit-diff-mode 'normal) 
   (evil-mode t))
 
@@ -113,6 +114,9 @@
 (use-package magit
   :ensure t
   :defer t)
+
+(use-package highlight-symbol
+  :ensure t)
 
 ;; Set up font
 (add-hook 'window-setup-hook
@@ -204,3 +208,6 @@
   ;; asm-mode sets it locally to nil, to "stay closer to the old TAB behaviour".
   (setq tab-always-indent (default-value 'tab-always-indent)))
 (add-hook 'asm-mode-hook #'my-asm-mode-hook)
+
+(use-package rust-mode
+  :ensure t)
