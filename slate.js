@@ -96,6 +96,9 @@ var oneMonitorLayout = S.layout("oneMonitor", {
     },
     "Slack": {
         "operations": [ bigMiddle(leftScreenRef) ]
+    },
+    "Emacs": {
+        "operations": [ bigMiddle(leftScreenRef) ]
     }
 });
 
@@ -115,6 +118,9 @@ var twoMonitorLayout = S.layout("twoMonitor", {
     },
     "Spotify": {
         "operations": [ bottomLeft(rightScreenRef) ]
+    },
+    "Emacs": {
+        "operations": [ bigMiddle(leftScreenRef) ]
     }
 });
 
