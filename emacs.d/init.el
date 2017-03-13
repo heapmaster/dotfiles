@@ -75,7 +75,8 @@
   :ensure t
   :config
   (projectile-global-mode)
-  (setq projectile-enable-caching t))
+  (setq projectile-enable-caching t)
+  (setq projectile-globally-ignored-directories (append '("target" "node_modules") projectile-globally-ignored-directories)))
 
 (use-package helm-projectile
   :ensure t)
@@ -85,8 +86,9 @@
 (use-package zenburn-theme :ensure t)
 (use-package cyberpunk-theme :ensure t)
 (use-package gruvbox-theme :ensure t)
+(use-package solarized-theme :ensure t)
 
-(load-theme 'sanityinc-tomorrow-eighties)
+(load-theme 'solarized-dark)
 
 (setq linum-format "%d ")
 (global-linum-mode t)
