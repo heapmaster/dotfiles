@@ -125,6 +125,11 @@
   :config
   (exec-path-from-shell-initialize))
 
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode))
+
 ;; Set up font
 (add-hook 'window-setup-hook
           (lambda ()
