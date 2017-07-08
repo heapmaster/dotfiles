@@ -46,10 +46,11 @@
       "g" 'magit-status
       "x" 'helm-M-x
       "o" 'delete-other-windows
-      "t" 'helm-projectile))
+      "t" 'helm-projectile
+      "a" 'org-agenda))
   (evil-define-key 'normal global-map (kbd "C-S-p") 'helm-projectile-switch-project)
   (evil-define-key 'normal global-map (kbd "C-z") 'eshell)
-  (evil-set-initial-state 'magit-diff-mode 'normal) 
+  (evil-set-initial-state 'magit-diff-mode 'normal)
   (evil-mode t))
 
 (use-package helm
@@ -108,7 +109,8 @@
             (define-key org-agenda-mode-map "k" `org-agenda-previous-item)))
   (setq org-default-notes-file "~/Dropbox/org/todo.org")
   (setq org-directory "~/Dropbox/org")
-  (setq org-agenda-files '("~/Dropbox/org")))
+  (setq org-agenda-files '("~/Dropbox/org"))
+  (setq org-log-done 'time))
 
 (use-package org-evil
   :ensure t)
@@ -123,7 +125,8 @@
 (use-package exec-path-from-shell
   :ensure t
   :config
-  (exec-path-from-shell-initialize))
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize)))
 
 (use-package flycheck
   :ensure t
