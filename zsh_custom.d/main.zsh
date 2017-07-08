@@ -22,6 +22,7 @@ alias h="history"
 alias s="search"
 alias vi="vim"
 
+alias calc="noglob awk_calc"
 ### Functions ###
 search() { open "http://google.com/search?q=`echo $@ | sed 's/ /+/g'`" ; }
 wiki() { open "http://en.wikipedia.org/wiki/`echo $@ | sed 's/ /_/g'`" ; }
@@ -39,6 +40,6 @@ function motd() {
     fortune -s | sed $'s/\t/    /g' | awk 'BEGIN{RS=""; FS="\n"} {max=0; for (i=1;i<=NF;i++) { if (length($i) > max) { max = length($i); } } h=""; for(i=0;i<max+4;i++) { h=sprintf("%s-", h); } printf("%s\n", h); for(i=1;i<=NF;i++) { printf("| %-*s |\n", max, $i); } printf("%s\n", h); }'
 }
 
-function calc() { 
+function awk_calc() { 
     awk "BEGIN {print $*}" ; 
 }
