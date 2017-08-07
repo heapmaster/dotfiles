@@ -102,15 +102,24 @@
   :ensure t
   :config
   (add-hook 'org-mode-hook
-            (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle))
+            (lambda ()
+            (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)))
   (add-hook 'org-agenda-mode-hook
           (lambda ()
             (define-key org-agenda-mode-map "j" 'org-agenda-next-item)
             (define-key org-agenda-mode-map "k" `org-agenda-previous-item)))
+  (setq org-capture-templates
+    '(("a" "My TODO task format." entry
+        (file "todo.org")
+        "* TODO %?"
+        :empty-lines 1)))
   (setq org-default-notes-file "~/Dropbox/org/todo.org")
   (setq org-directory "~/Dropbox/org")
-  (setq org-agenda-files '("~/Dropbox/org"))
-  (setq org-log-done 'time))
+  (setq org-default-notes-file "~/Dropbox/org/todo.org")
+  (setq org-agenda-files '("~/Dropbox/org/"))
+  (setq org-log-done 'time)
+  (setq org-todo-keywords
+        '((sequence "TODO" "WAITING" "|" "DONE" "CANCELED"))))
 
 (use-package org-evil
   :ensure t)
@@ -226,3 +235,8 @@
 
 (use-package rust-mode
   :ensure t)
+
+(use-package markdown-mode
+  :ensure t
+  :config
+  (setq markdown-command "pandoc --from markdown_github --to html"))
