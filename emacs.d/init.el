@@ -22,6 +22,8 @@
 (show-paren-mode t)
 (setq custom-safe-themes t)
 (setq-default indent-tabs-mode nil)
+(setq tab-width 4)
+(column-number-mode t)
 
 ;; Set backups to go to specific directory and turn them off
 (setq backup-directory-alist '("." . "~/.emacs.d/saves"))
@@ -48,7 +50,8 @@
       "o" 'delete-other-windows
       "t" 'helm-projectile
       "a" 'org-agenda
-      "c" 'org-capture))
+      "c" 'org-capture
+      "s" 'ag-project))
   (evil-define-key 'normal global-map (kbd "C-S-p") 'helm-projectile-switch-project)
   (evil-define-key 'normal global-map (kbd "C-z") 'eshell)
   (evil-set-initial-state 'magit-diff-mode 'normal)
@@ -82,6 +85,14 @@
 
 (use-package helm-projectile
   :ensure t)
+
+(use-package ag
+  :ensure t
+  :config
+  (setq ag-executable "/usr/local/bin/ag")
+  (setq ag-highlight-search t)
+  (setq ag-reuse-window t)
+  (setq ag-reuse-buffers t))
 
 ;; themes
 (use-package color-theme-sanityinc-tomorrow :ensure t)
