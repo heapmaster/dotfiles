@@ -47,7 +47,8 @@
       "x" 'helm-M-x
       "o" 'delete-other-windows
       "t" 'helm-projectile
-      "a" 'org-agenda))
+      "a" 'org-agenda
+      "c" 'org-capture))
   (evil-define-key 'normal global-map (kbd "C-S-p") 'helm-projectile-switch-project)
   (evil-define-key 'normal global-map (kbd "C-z") 'eshell)
   (evil-set-initial-state 'magit-diff-mode 'normal)
@@ -119,7 +120,7 @@
   (setq org-agenda-files '("~/Dropbox/org/"))
   (setq org-log-done 'time)
   (setq org-todo-keywords
-        '((sequence "TODO" "WAITING" "|" "DONE" "CANCELED"))))
+        '((sequence "TODO" "IN PROGRESS" "WAITING" "|" "DONE" "CANCELED"))))
 
 (use-package org-evil
   :ensure t)
