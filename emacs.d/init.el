@@ -22,7 +22,7 @@
 (show-paren-mode t)
 (setq custom-safe-themes t)
 (setq-default indent-tabs-mode nil)
-(setq tab-width 4)
+(setq-default tab-width 4)
 (column-number-mode t)
 
 ;; Set backups to go to specific directory and turn them off
@@ -52,6 +52,10 @@
       "a" 'org-agenda
       "c" 'org-capture
       "s" 'ag-project))
+  (use-package evil-surround
+    :ensure t
+    :config
+    (global-evil-surround-mode))
   (evil-define-key 'normal global-map (kbd "C-S-p") 'helm-projectile-switch-project)
   (evil-define-key 'normal global-map (kbd "C-z") 'eshell)
   (evil-set-initial-state 'magit-diff-mode 'normal)
@@ -246,6 +250,9 @@
 (add-hook 'asm-mode-hook #'my-asm-mode-hook)
 
 (use-package rust-mode
+  :ensure t)
+
+(use-package go-mode
   :ensure t)
 
 (use-package markdown-mode
