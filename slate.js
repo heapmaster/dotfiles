@@ -124,7 +124,7 @@ var twoMonitorLayout = S.layout("twoMonitor", {
     }
 });
 
-S.bind("o:cmd,shift", S.op("layout", { "name": twoMonitorLayout }));
+S.bind("o:cmd,shift", S.op("layout", { "name": oneMonitorLayout }));
 
 S.default(1, oneMonitorLayout);
 S.default(["3840x2160", "3840x2160"], twoMonitorLayout);

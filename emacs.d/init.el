@@ -85,7 +85,8 @@
   :config
   (projectile-global-mode)
   (setq projectile-enable-caching t)
-  (setq projectile-globally-ignored-directories (append '("target" "node_modules") projectile-globally-ignored-directories)))
+  (setq projectile-globally-ignored-directories (append '("target" "node_modules") projectile-globally-ignored-directories))
+  (setq projectile-globally-ignored-file-suffixes (append '("pyc") projectile-globally-ignored-file-suffixes)))
 
 (use-package helm-projectile
   :ensure t)
@@ -122,6 +123,7 @@
             (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)))
   (add-hook 'org-agenda-mode-hook
           (lambda ()
+            (setq org-habit-graph-column 50)
             (define-key org-agenda-mode-map "j" 'org-agenda-next-item)
             (define-key org-agenda-mode-map "k" `org-agenda-previous-item)))
   (setq org-capture-templates
