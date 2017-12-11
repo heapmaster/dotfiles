@@ -131,6 +131,7 @@
         (file "todo.org")
         "* TODO %?"
         :empty-lines 1)))
+  (setq org-agenda-text-search-extra-files '(agenda-archives))
   (setq org-default-notes-file "~/Dropbox/org/todo.org")
   (setq org-directory "~/Dropbox/org")
   (setq org-default-notes-file "~/Dropbox/org/todo.org")
