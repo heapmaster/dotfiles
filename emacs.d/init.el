@@ -264,3 +264,4 @@
   :ensure t
   :config
   (setq markdown-command "pandoc --from markdown_github --to html"))
+
