@@ -130,7 +130,10 @@
     '(("a" "My TODO task format." entry
         (file "todo.org")
         "* TODO %?"
-        :empty-lines 1)))
+        :empty-lines 1)
+      ("m" "Meeting" entry
+       (file "meetings.org")
+       "* MEETING with %? :MEETING:\n%t")))
   (setq org-agenda-text-search-extra-files '(agenda-archives))
   (setq org-default-notes-file "~/Dropbox/org/todo.org")
   (setq org-directory "~/Dropbox/org")
@@ -138,7 +141,8 @@
   (setq org-agenda-files '("~/Dropbox/org/"))
   (setq org-log-done 'time)
   (setq org-todo-keywords
-        '((sequence "TODO" "IN PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
+        '((sequence "TODO" "IN PROGRESS" "WAITING" "|" "DONE" "CANCELED")
+          (sequence "MEETING")))
   (setq org-modules
         '(org-habit)))
 
