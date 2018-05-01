@@ -27,12 +27,6 @@
 
 (setq tramp-default-method "ssh")
 
-;; Custom functions for work
-(defun open-morgan-log (log-number)
-  "Prompt user for log # to open."
-  (interactive "sEnter log id number: ")
-  (find-file (concat "/login01.cluster.haib.org:/gpfs/gpfs1/myerslab/data/Analysis/logs/" log-number ".main.log")))
-
 ;; Set backups to go to specific directory and turn them off
 (setq backup-directory-alist '("." . "~/.emacs.d/saves"))
 (setq make-backup-files nil)
@@ -277,4 +271,10 @@
   :ensure t
   :config
   (setq markdown-command "pandoc --from markdown_github --to html"))
+
+;; Custom functions for work
+(defun open-morgan-log (log-number)
+  "Prompt user for log # to open."
+  (interactive "sEnter log id number: ")
+  (find-file (concat "/login01.cluster.haib.org:/gpfs/gpfs1/myerslab/data/Analysis/logs/" log-number ".main.log")))
 
