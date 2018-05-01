@@ -25,6 +25,14 @@
 (setq-default tab-width 4)
 (column-number-mode t)
 
+(setq tramp-default-method "ssh")
+
+;; Custom functions for work
+(defun open-morgan-log (log-number)
+  "Prompt user for log # to open."
+  (interactive "sEnter log id number: ")
+  (find-file (concat "/login01.cluster.haib.org:/gpfs/gpfs1/myerslab/data/Analysis/logs/" log-number ".main.log")))
+
 ;; Set backups to go to specific directory and turn them off
 (setq backup-directory-alist '("." . "~/.emacs.d/saves"))
 (setq make-backup-files nil)
@@ -51,7 +59,8 @@
       "t" 'helm-projectile
       "a" 'org-agenda
       "c" 'org-capture
-      "s" 'ag-project))
+      "s" 'ag-project
+      "l" 'open-morgan-log))
   (use-package evil-surround
     :ensure t
     :config
