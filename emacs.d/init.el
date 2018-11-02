@@ -272,6 +272,17 @@
   :config
   (setq markdown-command "pandoc --from markdown_github --to html"))
 
+;; Python stuff
+(use-package virtualenvwrapper
+  :ensure t
+  :config
+  (venv-initialize-interactive-shells)
+  (venv-initialize-eshell)
+  (setq projectile-switch-project-action
+      '(lambda ()
+         (venv-projectile-auto-workon)
+         (projectile-find-file))))
+
 ;; Custom functions for work
 (defun open-morgan-log (log-number)
   "Prompt user for log # to open."
