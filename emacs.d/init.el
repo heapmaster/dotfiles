@@ -272,6 +272,9 @@
   :config
   (setq markdown-command "pandoc --from markdown_github --to html"))
 
+(use-package ess
+  :ensure t)
+
 ;; Python stuff
 (use-package virtualenvwrapper
   :ensure t
