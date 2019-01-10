@@ -54,6 +54,7 @@
       "a" 'org-agenda
       "c" 'org-capture
       "s" 'ag-project
+      "S" 'ag-project-regexp
       "l" 'open-morgan-log))
   (use-package evil-surround
     :ensure t
@@ -62,6 +63,7 @@
   (evil-define-key 'normal global-map (kbd "C-S-p") 'helm-projectile-switch-project)
   (evil-define-key 'normal global-map (kbd "C-z") 'eshell)
   (evil-set-initial-state 'magit-diff-mode 'normal)
+  (evil-set-initial-state 'ess-r-help-mode 'normal)
   (evil-mode t))
 
 (use-package helm
@@ -273,6 +275,11 @@
   (setq markdown-command "pandoc --from markdown_github --to html"))
 
 (use-package ess
+  :ensure t
+  :config
+  (setq flycheck-lintr-linters "with_defaults(line_length_linter(120))"))
+
+(use-package dockerfile-mode
   :ensure t)
 
 ;; Python stuff
