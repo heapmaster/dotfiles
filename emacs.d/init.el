@@ -55,6 +55,7 @@
       "c" 'org-capture
       "s" 'ag-project
       "S" 'ag-project-regexp
+      "$" 'toggle-truncate-lines
       "l" 'open-morgan-log))
   (use-package evil-surround
     :ensure t
