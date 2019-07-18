@@ -56,7 +56,10 @@
       "s" 'ag-project
       "S" 'ag-project-regexp
       "$" 'toggle-truncate-lines
-      "l" 'open-morgan-log))
+      "l" 'open-morgan-log)
+    (evil-leader/set-key-for-mode 'ess-r-mode
+      "l" 'ess-r-devtools-load-package
+      "T" 'ess-r-devtools-test-package))
   (use-package evil-surround
     :ensure t
     :config
