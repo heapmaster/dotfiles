@@ -1,0 +1,22 @@
+## Modeline
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+## This makes sure that if the connection hangs, screen does not die...
+autodetach on
+## Visiual Bell Off
+vbell off
+## Scroll-back lines
+defscrollback 1024
+## How to invoke screen: C-q and C-q C-q to get a C-q
+escape ^Oo
+##
+startup_message off
+
+## terminfo and termcap for nice 256 color terminal
+## allow bold colors - necessary for some reason
+attrcolor b ".I"
+## tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+## erase background with current bg color
+defbce "on"
+term xterm-256color
