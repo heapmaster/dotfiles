@@ -153,7 +153,13 @@
         '((sequence "TODO" "IN PROGRESS" "WAITING" "|" "DONE" "CANCELED")
           (sequence "MEETING")))
   (setq org-modules
-        '(org-habit)))
+        '(org-habit))
+  (setq org-plantuml-jar-path
+        (expand-file-name "~/Dropbox/org/plantuml.jar"))
+  (setq plantuml-default-exec-mode 'jar))
+
+;; This enables code execution in org mode blocks
+(require 'ob-plantuml)
 
 (use-package org-evil
   :ensure t)
@@ -284,6 +290,9 @@
   (setq flycheck-lintr-linters "with_defaults(line_length_linter(120))"))
 
 (use-package dockerfile-mode
+  :ensure t)
+
+(use-package plantuml-mode
   :ensure t)
 
 ;; Python stuff
