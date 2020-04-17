@@ -1,0 +1,23 @@
+yabai -m config layout         bsp
+yabai -m config top_padding    10
+yabai -m config bottom_padding 10
+yabai -m config left_padding   10
+yabai -m config right_padding  10
+yabai -m config window_gap     10
+
+yabai -m config focus_follows_mouse autoraise
+yabai -m config mouse_follows_focus on
+
+yabai -m config mouse_modifier fn
+yabai -m config mouse_action2 resize
+
+yabai -m config status_bar on
+yabai -m config status_bar_text_font         "Helvetica Neue:Bold:12.0"
+yabai -m config status_bar_icon_font         "FontAwesome:Regular:12.0"
+yabai -m config status_bar_background_color  0xff202020
+yabai -m config status_bar_foreground_color  0xffa8a8a8
+yabai -m config status_bar_space_icon_strip  I II III IV V VI VII VIII IX X
+yabai -m config status_bar_power_icon_strip  🔋 ⚡
+yabai -m config status_bar_clock_icon        ⌚
+
+echo "yabai configuration loaded..."
