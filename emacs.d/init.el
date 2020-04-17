@@ -295,6 +295,11 @@
 (use-package plantuml-mode
   :ensure t)
 
+(use-package python-mode
+  :ensure t
+  :config
+  (setq flycheck-python-flake8-executable "/usr/local/bin/flake8"))
+
 ;; Python stuff
 (use-package virtualenvwrapper
   :ensure t
