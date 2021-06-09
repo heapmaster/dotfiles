@@ -19,7 +19,7 @@ lucky() { open "http://google.com/search?q=`echo $@ | sed 's/ /+/g'`&btnI" ; }
 wiki() { open "http://en.wikipedia.org/wiki/`echo $@ | sed 's/ /_/g'`" ; }
 
 function code() {
-    cd ~/Box\ Sync/my_repos/$1
+    cd ~/code/$1
 }
 
 if [ -e ~/.javarc ]; then
