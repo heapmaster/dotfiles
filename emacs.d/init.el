@@ -103,7 +103,7 @@
 (use-package ag
   :ensure t
   :config
-  (setq ag-executable "/usr/local/bin/ag")
+  (setq ag-executable "/opt/homebrew/bin/ag")
   (setq ag-highlight-search t)
   (setq ag-reuse-window t)
   (setq ag-reuse-buffers t))
@@ -144,10 +144,10 @@
        (file "meetings.org")
        "* MEETING with %? :MEETING:\n%t")))
   (setq org-agenda-text-search-extra-files '(agenda-archives))
-  (setq org-default-notes-file "~/Dropbox/org/todo.org")
-  (setq org-directory "~/Dropbox/org")
-  (setq org-default-notes-file "~/Dropbox/org/todo.org")
-  (setq org-agenda-files '("~/Dropbox/org/"))
+  (setq org-default-notes-file "~/personal_repos/org/todo.org")
+  (setq org-directory "~/personal_repos/org")
+  (setq org-default-notes-file "~/personal_repos/org/todo.org")
+  (setq org-agenda-files '("~/personal_repos/org/"))
   (setq org-log-done 'time)
   (setq org-todo-keywords
         '((sequence "TODO" "IN PROGRESS" "WAITING" "|" "DONE" "CANCELED")
@@ -155,7 +155,7 @@
   (setq org-modules
         '(org-habit))
   (setq org-plantuml-jar-path
-        (expand-file-name "~/Dropbox/org/plantuml.jar"))
+        (expand-file-name "~/personal_repos/org/plantuml.jar"))
   (setq plantuml-default-exec-mode 'jar))
 
 ;; This enables code execution in org mode blocks

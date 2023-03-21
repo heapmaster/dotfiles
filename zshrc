@@ -18,7 +18,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom.d
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize themes)
+plugins=(git colorize themes vi-mode)
 
 # User configuration
 
@@ -37,3 +37,12 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 motd
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/scottnewberry/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+eval "$(starship init zsh)"
+
+# Generated for envman. Do not edit.
+#[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+

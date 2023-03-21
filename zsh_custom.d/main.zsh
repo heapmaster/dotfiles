@@ -1,11 +1,12 @@
 ### VI mode ###
 bindkey -v
-bindkey '^R' history-incremental-search-backward
-bindkey '^P' up-history
-bindkey '^N' down-history
-bindkey '^w' backward-kill-word
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
+#bindkey '^R' history-incremental-search-backward
+#bindkey '^P' up-history
+#bindkey '^N' down-history
+#bindkey '^w' backward-kill-word
+#bindkey '^a' beginning-of-line
+#bindkey '^e' end-of-line
+bindkey "^Q" push-line
 
 ### Zsh options ###
 setopt promptsubst

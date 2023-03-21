@@ -46,7 +46,7 @@ function comma() {
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 
-export PATH=$PATH:~/node_modules/.bin
+export PATH="$PATH:~/node_modules/.bin:/Users/scottnewberry/.rd/bin"
 
 #Prompt and prompt colors
 # 30m - Black
@@ -82,3 +82,10 @@ export PS1="[\u@\h \W]$YELLOW\$($GIT_PS_1)$RESET$ "
 prompt
 
 alias ub_local="docker run --rm -it -v `pwd`:/here ubuntu /bin/bash"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/scottnewberry/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
