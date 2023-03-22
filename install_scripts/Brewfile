@@ -30,3 +30,7 @@ cask 'eclipse-java'
 cask 'font-hack'
 cask 'iterm2'
 cask 'virtualbox'
+
+brew 'jdtls'
+brew 'neovim'
+brew 'starship'
