@@ -32,7 +32,7 @@ vim.o.numberwidth = 5
 
 vim.g.mapleader = ","
 
-vim.keymap.set("n", "<CR>", ":nohlsearch<CR>")
+vim.keymap.set("n", "<cr>", "<cmd>nohlsearch<cr><cr>")
 
 vim.keymap.set("c", "%%", "<C-R>=expand('%:h').'/'<CR>")
 vim.keymap.set("n", "<leader>e", ":edit %%", { remap = true })
@@ -42,3 +42,6 @@ vim.keymap.set("n", "<c-j>", "<c-w>j")
 vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-h>", "<c-w>h")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
+
+vim.keymap.set("n", "<leader>t", "<cmd>lua require('telescope.builtin').find_files({cwd = require('telescope.utils').buffer_dir()})<cr>")
+vim.keymap.set("n", "<leader>o", "<cmd>:only<cr>")
