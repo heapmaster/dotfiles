@@ -1,13 +1,13 @@
--- vim.o.comptible = false
--- vim.o.hidden = true
--- vim.o.history = 10000
--- vim.o.wildmenu = true
--- vim.o.ruler = true
--- vim.o.showcmd = true
--- vim.o.hlsearch = true
--- vim.o.autoindent = true
--- vim.o.laststatus = 2
--- vim.o.incsearch = true
+vim.o.comptible = false
+vim.o.hidden = true
+vim.o.history = 10000
+vim.o.wildmenu = true
+vim.o.ruler = true
+vim.o.showcmd = true
+vim.o.hlsearch = true
+vim.o.autoindent = true
+vim.o.laststatus = 2
+vim.o.incsearch = true
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -43,5 +43,16 @@ vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-h>", "<c-w>h")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 
-vim.keymap.set("n", "<leader>t", "<cmd>lua require('telescope.builtin').find_files({cwd = require('telescope.utils').buffer_dir()})<cr>")
+--vim.keymap.set("n", "<leader>t", "<cmd>lua require('telescope.builtin').find_files({cwd = require('telescope.utils').buffer_dir()})<cr>")
+vim.keymap.set("n", "<leader>t", "<cmd>lua require('telescope.builtin').find_files()<cr>")
+vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>")
+vim.keymap.set("n", "<leader>d", "<cmd>Telescope diagnostics<cr>")
 vim.keymap.set("n", "<leader>o", "<cmd>:only<cr>")
+
+vim.keymap.set("n", "<leader>vd", "<cmd>lua require('dapui').open()<cr>")
+vim.keymap.set("n", "<leader>vD", "<cmd>lua require('dapui').close()<cr>")
+
+vim.keymap.set("n", "<leader>p", "<cmd>lua require('telescope').extensions.projects.projects{}<cr>")
+
+vim.keymap.set("n", "<leader>fb", "<cmd>NvimTreeToggle<cr>")
+vim.keymap.set("n", "<leader>ff", "<cmd>NvimTreeFindFile<cr>")
