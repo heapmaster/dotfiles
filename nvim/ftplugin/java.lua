@@ -21,10 +21,9 @@ local on_attach = function(client, bufnr)
     remap("n", "<leader>gD", vim.lsp.buf.declaration, buf_opts, "Go to declaration")
     remap("n", "<leader>gd", vim.lsp.buf.definition, buf_opts, "Go to definition")
     remap("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>", buf_opts, "List references")
+    remap("n", "<c-space>", vim.lsp.buf.code_action, buf_opts, "Code Actions")
     remap("n", "<leader>vc", jdtls.test_class, buf_opts, "Test class")
     remap("n", "<leader>vm", jdtls.test_nearest_method, buf_opts, "Test method")
-    remap("n", "<c-space>", vim.lsp.buf.code_action, buf_opts, "Code Actions")
-    remap("n", "<C-k>", vim.lsp.buf.signature_help, buf_opts, "Show signature")
     jdtls.setup_dap({ hotcodereplace = 'auto', config_overrides = { vmArgs = '--add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED' }})
 end
 
@@ -81,11 +80,12 @@ local config = {
         '-Dlog.protocol=true',
         '-Dlog.level=ALL',
         '-Xmx4g',
+        '-javaagent:/Users/scottnewberry/.m2//repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar',
         '--add-modules=ALL-SYSTEM',
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-        '-jar', '/opt/homebrew/Cellar/jdtls/1.21.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-        '-configuration', '/opt/homebrew/Cellar/jdtls/1.21.0/libexec/config_mac',
+        '-jar', '/opt/homebrew/Cellar/jdtls/1.26.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar',
+        '-configuration', '/opt/homebrew/Cellar/jdtls/1.26.0/libexec/config_mac',
         '-data', workspace_folder,
     },
 }

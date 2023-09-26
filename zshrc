@@ -35,14 +35,18 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+alias vi=nvim
+alias vim=nvim
+alias k=kubectl
 
 motd
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/scottnewberry/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 eval "$(starship init zsh)"
 
 # Generated for envman. Do not edit.
 #[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/scottnewberry/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

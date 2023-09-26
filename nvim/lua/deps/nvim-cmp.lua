@@ -6,11 +6,13 @@ return {
             'hrsh7th/cmp-nvim-lsp-signature-help',
             'hrsh7th/cmp-vsnip',
             'hrsh7th/vim-vsnip',
+            'zbirenbaum/copilot-cmp',
         },
         function()
             local cmp = require('cmp')
             cmp.setup({
                 sources = {
+                    { name = "copilot", group_index = 2 },
                     { name = 'nvim_lsp' },
                     { name = 'nvim_lsp_signature_help' },
                     { name = 'vsnip' },

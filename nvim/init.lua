@@ -7,6 +7,9 @@ require("dep") {
             require"alpha".setup(require"alpha.themes.startify".config)
         end
     },
+    {
+        "neovim/nvim-lspconfig"
+    },
     modules = {
         prefix = "deps.",
         "java_config",
@@ -18,7 +21,10 @@ require("dep") {
         "theme",
         "project",
         "fidget",
-        "statusline"
+        "statusline",
+        "which-key",
+        "copilot"
     },
 }
 require("base")
+require("lsp")
