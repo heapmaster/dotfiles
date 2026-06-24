@@ -1,11 +1,11 @@
 local M = {}
 
-function M.remap(mode, rhs, lhs, bufopts, desc)
-    if bufopts == nil then
-        bufopts = {}
+function M.remap(mode, lhs, rhs, opts, desc)
+    if opts == nil then
+        opts = {}
     end
-    bufopts.desc = desc
-    vim.keymap.set(mode, rhs, lhs, bufopts)
+    opts.desc = desc
+    vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 return M

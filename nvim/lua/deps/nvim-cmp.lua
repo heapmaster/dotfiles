@@ -1,32 +1,32 @@
 return {
     {
-        'hrsh7th/nvim-cmp',
-        requires = {
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-lsp-signature-help',
-            'hrsh7th/cmp-vsnip',
-            'hrsh7th/vim-vsnip',
-            'zbirenbaum/copilot-cmp',
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
         },
-        function()
-            local cmp = require('cmp')
+        config = function()
+            local cmp = require("cmp")
             cmp.setup({
                 sources = {
-                    { name = "copilot", group_index = 2 },
-                    { name = 'nvim_lsp' },
-                    { name = 'nvim_lsp_signature_help' },
-                    { name = 'vsnip' },
+                    { name = "nvim_lsp" },
+                    { name = "nvim_lsp_signature_help" },
+                    { name = "luasnip" },
                 },
                 snippet = {
                     expand = function(args)
-                        vim.fn["vsnip#anonymous"](args.body)
+                        require("luasnip").lsp_expand(args.body)
                     end,
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ['<C-Space>'] = cmp.mapping.complete(),
-                    ['<CR>'] = cmp.mapping.confirm({select = true}),
-                })
+                    ["<C-Space>"] = cmp.mapping.complete(),
+                    ["<CR>"]      = cmp.mapping.confirm({ select = true }),
+                }),
             })
-        end
-    }
+        end,
+    },
+    { "L3MON4D3/LuaSnip",        lazy = true },
+    { "saadparwaiz1/cmp_luasnip", lazy = true },
 }

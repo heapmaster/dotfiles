@@ -1,27 +1,25 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        branch = "0.1.1",
-        requires = {
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            'ahmedkhalf/project.nvim',
+            "ahmedkhalf/project.nvim",
         },
-        function()
-            require('telescope').load_extension('ui-select')
-            require('telescope').load_extension('projects')
-            require('telescope').setup({
-                defaults =  {
+        config = function()
+            require("telescope").load_extension("ui-select")
+            require("telescope").load_extension("projects")
+            require("telescope").setup({
+                defaults = {
                     path_display = {
-                        shorten = {
-                            len = 3, exclude = {1, -1}
-                        },
-                        truncate = true
+                        shorten = { len = 3, exclude = { 1, -1 } },
+                        truncate = true,
                     },
-                    dynamic_preview_title = true
-                }
+                    dynamic_preview_title = true,
+                },
             })
-        end
-    }
+        end,
+    },
+    { "nvim-lua/plenary.nvim",                  lazy = true },
+    { "nvim-telescope/telescope-ui-select.nvim", lazy = true },
 }

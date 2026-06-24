@@ -1,30 +1,13 @@
 require("bootstrap")
-require("dep") {
-    {
-        "goolord/alpha-nvim",
-        requires = { "nvim-tree/nvim-web-devicons" },
-        function()
-            require"alpha".setup(require"alpha.themes.startify".config)
-        end
-    },
-    {
-        "neovim/nvim-lspconfig"
-    },
-    modules = {
-        prefix = "deps.",
-        "java_config",
-        "telescope",
-        "treesitter",
-        "nvim-cmp",
-        "nvim-dap",
-        "nvim-tree",
-        "theme",
-        "project",
-        "fidget",
-        "statusline",
-        "which-key",
-        "copilot"
-    },
-}
+
+-- Leader must be set before lazy.nvim initializes plugins
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
+
+require("lazy").setup({ { import = "deps" } }, {
+    install = { colorscheme = { "tokyonight" } },
+    checker = { enabled = false },
+})
+
 require("base")
 require("lsp")

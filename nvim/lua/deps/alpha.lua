@@ -1,9 +1,9 @@
 return {
     {
-        "nvim-lualine/lualine.nvim",
+        "goolord/alpha-nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            require("lualine").setup()
+            require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
 }
