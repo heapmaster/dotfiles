@@ -35,8 +35,10 @@ local sysname = vim.loop.os_uname().sysname
 local config_dir = jdtls_home .. (sysname == "Darwin" and "/config_mac" or "/config_linux")
 
 -- Lombok agent is optional; skip gracefully if not present
-local lombok_jar = os.getenv("LOMBOK_JAR")
-    or (home .. "/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar")
+local lombok_jar = os.getenv("LOMBOK_JAR") or (function()
+    local hits = vim.fn.glob(home .. "/.m2/repository/org/projectlombok/lombok/*/lombok-*.jar", false, true)
+    return hits[#hits]
+end)()
 
 local cmd = {
     java_bin,
