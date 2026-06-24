@@ -37,7 +37,10 @@ local config_dir = jdtls_home .. (sysname == "Darwin" and "/config_mac" or "/con
 -- Lombok agent is optional; skip gracefully if not present
 local lombok_jar = os.getenv("LOMBOK_JAR") or (function()
     local hits = vim.fn.glob(home .. "/.m2/repository/org/projectlombok/lombok/*/lombok-*.jar", false, true)
-    return hits[#hits]
+    -- exclude sources jars, pick highest version (glob returns lexicographic order)
+    local filtered = vim.tbl_filter(function(p) return not p:match("%-sources%.jar$") end, hits)
+    table.sort(filtered)
+    return filtered[#filtered]
 end)()
 
 local cmd = {
