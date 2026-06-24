@@ -11,5 +11,6 @@
     st = status
 [push]
 	default = simple
+	autoSetupRemote = true
 [init]
 	defaultBranch = main

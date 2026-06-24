@@ -6,5 +6,5 @@ if [[ ! -z $MY_ENVIRONMENT ]]; then
     fi
 fi
 
-GOPATH="$HOME/go"
-PATH="$HOME/.cargo/bin:$PATH:$GOPATH/bin"
+#GOPATH="$HOME/go"
+#PATH="$HOME/.cargo/bin:$PATH:$GOPATH/bin"
