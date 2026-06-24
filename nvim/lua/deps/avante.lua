@@ -18,12 +18,14 @@ return {
         },
         opts = {
             provider = "claude",
-            claude = {
-                endpoint = "https://api.anthropic.com",
-                model = "claude-sonnet-4-6",
-                timeout = 30000,
-                temperature = 0,
-                max_tokens = 8096,
+            providers = {
+                claude = {
+                    endpoint = "https://api.anthropic.com",
+                    model = "claude-sonnet-4-6",
+                    timeout = 30000,
+                    temperature = 0,
+                    max_tokens = 8096,
+                },
             },
             mappings = {
                 ask = "<leader>aa",
