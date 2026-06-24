@@ -14,8 +14,11 @@ return {
                 { "<leader>cc", desc = "Float terminal (toggle)" },
                 { "<leader>cs", desc = "Split terminal (toggle)" },
                 { "<leader>f", group = "format" },
-                { "<leader>d",  desc = "List all diagnostics" },
+                { "<leader>d",  group = "diagnostics" },
                 { "<leader>dd", desc = "Show diagnostic at cursor" },
+                { "<leader>de", desc = "List errors" },
+                { "<leader>dw", desc = "List warnings" },
+                { "<leader>di", desc = "List info" },
                 { "<leader>fb", desc = "Toggle file tree" },
                 { "<leader>ff", desc = "Find file in tree" },
             })
