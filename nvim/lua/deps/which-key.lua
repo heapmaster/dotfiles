@@ -12,6 +12,8 @@ return {
                 { "<leader>a", group = "avante (AI)" },
                 { "<leader>c", group = "claude terminal" },
                 { "<leader>f", group = "format" },
+                { "<leader>d",  desc = "List all diagnostics" },
+                { "<leader>dd", desc = "Show diagnostic at cursor" },
                 { "<leader>fb", desc = "Toggle file tree" },
                 { "<leader>ff", desc = "Find file in tree" },
             })

@@ -10,6 +10,7 @@ return {
                     border = "curved",
                 },
             })
+            vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>:ToggleTerm<CR>", { noremap = true, silent = true })
         end,
     },
 }
