@@ -50,7 +50,7 @@ vim.keymap.set("n", "<leader>de", "<cmd>lua require('telescope.builtin').diagnos
 vim.keymap.set("n", "<leader>dw", "<cmd>lua require('telescope.builtin').diagnostics({ line_width = 'full', wrap_results = true, severity = vim.diagnostic.severity.WARN })<cr>")
 vim.keymap.set("n", "<leader>di", "<cmd>lua require('telescope.builtin').diagnostics({ line_width = 'full', wrap_results = true, severity = vim.diagnostic.severity.INFO })<cr>")
 vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.open_float()<cr>")
-vim.keymap.set("n", "<leader>g", "<cmd>Telescope live_grep<cr>")
+-- vim.keymap.set("n", "<leader>g", "<cmd>Telescope live_grep<cr>")
 vim.keymap.set("n", "<leader>s", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
 vim.keymap.set("n", "<leader>o", "<cmd>:only<cr>")
 
