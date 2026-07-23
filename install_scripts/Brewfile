@@ -28,6 +28,7 @@ brew 'zsh'
 brew 'fortune'
 cask 'eclipse-java'
 cask 'font-hack-nerd-font'
+cask 'font-symbols-only-nerd-font'
 cask 'iterm2'
 cask 'virtualbox'
 
