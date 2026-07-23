@@ -27,7 +27,7 @@ brew 'wget'
 brew 'zsh'
 brew 'fortune'
 cask 'eclipse-java'
-cask 'font-hack'
+cask 'font-hack-nerd-font'
 cask 'iterm2'
 cask 'virtualbox'
 
